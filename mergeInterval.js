@@ -1,4 +1,4 @@
-const mergeSortedSequences = (sequences) => {
+const mergeSortedInterval = (sequences) => {
   let next = 1;
   let nextValue = sequences[next];
   let currentValue = sequences[0];
@@ -22,7 +22,7 @@ const mergeSortedSequences = (sequences) => {
   return result;
 };
 
-const mergeSequences = (sequences) => {
+const mergeInterval = (sequences) => {
   const mergedPositions = [];
 
   sequences.forEach((sequence) => {
@@ -65,9 +65,9 @@ const mergeSequences = (sequences) => {
   return mergedSequences;
 };
 
-const resultA = mergeSequences([[1, 3], [2, 6], [8, 10], [15, 18]]); // [[1, 6], [8, 10], [15, 18]]
-const resultB = mergeSequences([[1, 4], [4, 5]]); // [[1, 5]]
-const resultD = mergeSequences([[1, 2], [3, 9], [8, 10], [15, 18]]); // [[1, 2], [3, 10], [15, 18]]
-const resultE = mergeSequences([[1, 2], [3, 9], [8, 10]]); // [[1, 2], [3, 10]]
-const resultF = mergeSequences([[1, 2], [3, 9], [8, 10], [15, 18], [16, 100]]); // [[1, 2], [3, 10], [15, 100]]
+const resultA = mergeInterval([[1, 3], [2, 6], [8, 10], [15, 18]]); // [[1, 6], [8, 10], [15, 18]]
+const resultB = mergeInterval([[1, 4], [4, 5]]); // [[1, 5]]
+const resultD = mergeInterval([[1, 2], [3, 9], [8, 10], [15, 18]]); // [[1, 2], [3, 10], [15, 18]]
+const resultE = mergeInterval([[1, 2], [3, 9], [8, 10]]); // [[1, 2], [3, 10]]
+const resultF = mergeInterval([[1, 2], [3, 9], [8, 10], [15, 18], [16, 100]]); // [[1, 2], [3, 10], [15, 100]]
 console.log({ resultA, resultB, resultD, resultE, resultF });
