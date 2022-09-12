@@ -1,27 +1,3 @@
-const mergeSortedInterval = (sequences) => {
-  let next = 1;
-  let nextValue = sequences[next];
-  let currentValue = sequences[0];
-  const result = [];
-  
-  while (next < sequences.length) {
-    const [currentStart, currentEnd] = currentValue;
-    const [nextStart, nextEnd] = nextValue;
-
-    if (currentEnd >= nextStart) {
-      currentValue = [currentStart, nextEnd];
-    } else {
-      result.push(currentValue);
-      currentValue = nextValue;
-    }
-    next++;
-    nextValue = sequences[next];
-  }
-
-  result.push(currentValue);
-  return result;
-};
-
 const mergeInterval = (sequences) => {
   const mergedPositions = [];
 
