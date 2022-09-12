@@ -36,13 +36,12 @@ const mergeInterval = (sequences) => {
         }
         
       } else {
-        console.log({ current: mergedPositions[i], i})
         mergedPositions[i] = 0;
       }
     }
   });
-
-  const mergedSequences = [];
+  
+  const mergedInterval = [];
   let sequence = [];
 
   mergedPositions.forEach((position, i) => {
@@ -51,7 +50,7 @@ const mergeInterval = (sequences) => {
       sequence[sequenceIndex] = i;
       
       if (sequence.length === 2) {
-        mergedSequences.push(sequence);
+        mergedInterval.push(sequence);
         sequence = [];
       }
     }
@@ -59,10 +58,10 @@ const mergeInterval = (sequences) => {
   });
 
   if (sequence.length === 2) {
-    mergedSequences.push(sequence);
+    mergedInterval.push(sequence);
   }
 
-  return mergedSequences;
+  return mergedInterval;
 };
 
 const resultA = mergeInterval([[1, 3], [2, 6], [8, 10], [15, 18]]); // [[1, 6], [8, 10], [15, 18]]
