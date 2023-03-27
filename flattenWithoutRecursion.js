@@ -1,7 +1,6 @@
 const flattenWithoutRecursion = (array) => {
   const result = [...array];
   let index = 0;
-
   while (index < result.length) {
     const element = result[index];
     if (Array.isArray(element)) {
@@ -14,7 +13,6 @@ const flattenWithoutRecursion = (array) => {
       index = index + 1
     }
   }
-
   return result;
 }
 
