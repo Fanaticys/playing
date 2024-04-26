@@ -1,7 +1,7 @@
 const flattenRecursion = (array) => {
   return array.reduce((acc, element) => {
     if (Array.isArray(element)) {
-      return acc.concat(flatten(element));
+      return acc.concat(flattenRecursion(element));
     }
 
     acc.push(element);

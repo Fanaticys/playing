@@ -16,7 +16,6 @@ const validateNextPosition = (width, height, current) => (position) => {
 }
 
 const checkForPortal = (portalA, portalB) => (position) => {
-  console.log({ position, portalA, portalB });
   if (portalA[0] === position[0] && portalA[1] === position[1]) {
     return portalB;
   }
@@ -26,7 +25,6 @@ const checkForPortal = (portalA, portalB) => (position) => {
   
 function getPosition(width, height, position, portalA, portalB, moves) {
   return moves.split('').reduce((current, move) => {
-    console.log({current})
     return compose(
       validateNextPosition(width, height, current),
       checkForPortal(portalA, portalB),
@@ -35,5 +33,8 @@ function getPosition(width, height, position, portalA, portalB, moves) {
   }, position);
 }
 
-const result = getPosition(10, 10, [0, 0], [1, 1], [2, 2], 'DR')
-console.log(result);
+console.log(getPosition(10, 10, [0, 0], [1, 1], [2, 2], 'RR')) // [0, 2]
+console.log(getPosition(10, 10, [0, 0], [1, 1], [2, 2], 'DD')) // [2, 0]
+console.log(getPosition(10, 10, [0, 0], [1, 1], [2, 2], 'DR')) // [2, 2]
+console.log(getPosition(10, 10, [0, 0], [9, 9], [9, 9], 'DRDRDR')) // [3, 3]
+console.log(getPosition(10, 10, [3, 2], [2, 2], [8, 8], 'U')) // [8, 8]
